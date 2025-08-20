@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1>Project 1 background changer</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+  </body>
+  <script>
+    
+    let count = 0;
+    let col = function () {
+      let arr = ["red", "blue", "green", "yellow", "purple"];
+      if (count == arr.length) {
+        count = 0;
+      }
+      let bb = document.querySelector("body");
+      bb.style.background = arr[count];
+      console.log(count)
+      count++;
+    };
+
+  
+    let colinter;
+    document.querySelector("#start").addEventListener("click", function () {
+      if(!colinter){
+        colinter = setInterval(col, 1000);
+      }
+     
+    });
+   
+    document.querySelector("#stop").addEventListener("click", function () {
+      console.log("dd")
+      clearInterval(colinter);
+      colinter = null
+    });
+  </script>
+</html>
